@@ -1,0 +1,31 @@
+
+<div class="row container-fluid" [class.found]="content.author == searchVal" style="margin: auto;border:2px solid" [ngClass]="isEven? 'light' : 'white'" *ngIf="content">
+    <header  class="card-title" [appHighlightImportantData] colour="violet" [routerLink]="['/list', content.id]">{{ content.title }}</header>
+
+    <img *ngIf="content.imageLink"
+      [src]="content.imageLink"
+      class="card-img-top"
+      alt="..."
+      (click)="showData(content)" style="cursor: pointer;"
+    />
+    
+    <img *ngIf="content.imageLink ==''"
+    src="https://www.clipartkey.com/mpngs/m/152-1520367_user-profile-default-image-png-clipart-png-download.png"
+    class="card-img-top"
+    alt="..."
+    (click)="showData(content)" style="cursor: pointer;"
+  />
+
+    <div class="card-body">
+    <!--  <p class="card-text" *ngIf="content.body">{{ content.body }}</p>    
+      <p class="card-text">{{ content.author }}</p> -->
+      <p class="card-text" appHighlightImportantData ="typestyle">{{ content.type }}</p>
+      <p class="card-text" *ngIf="content.hashtags.length">
+        <span
+          *ngFor="let tag of content.hashtags"
+          class=""
+          style="margin-left: 5px"
+          appHighlightImportantData="tagstyle"  colour="violet">{{ tag }}</span>
+      </p>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<input #item type="number">
+<button (click)="getData(item.value)">get item</button>
+<div class="test">
+    <app-content-card *ngIf="!err"
+    [content]="card" ></app-content-card>
+    <p *ngIf="err">Error</p>
+   </div>

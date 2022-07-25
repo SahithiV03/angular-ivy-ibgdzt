@@ -1,0 +1,27 @@
+<div class="search">
+    <input #search>
+    <button (click)="authorCheck(search.value)">Check For author</button>
+    <h4 class="success" *ngIf="searchFlag">author found</h4>
+    <h4 class="fail" *ngIf="!searchFlag">author not found</h4>
+  </div>
+  
+  <app-content-card *ngFor="let card of (contentArray);"
+      [content]="card" [searchVal]="search.value" ></app-content-card>
+
+<app-content-card *ngFor="let card of contentArray; even as isEven" [content]="card" [isEven]="isEven" style="color: yellow;
+"></app-content-card>
+
+<app-content-card *ngFor="let card of (contentArray | filter);"
+[content]="card" style="color: green;
+background: pink;" ></app-content-card>
+
+  
+  <app-content-card *ngFor="let card of (contentArray | filter: 'type2');"
+                    [content]="card" style="color: red;
+                    background: pink;"></app-content-card>
+  
+                    <app-content-card *ngFor="let card of (contentArray | filter: '');"
+                    [content]="card" style="color: blue;
+                    background: pink;" ></app-content-card>
+  
+
